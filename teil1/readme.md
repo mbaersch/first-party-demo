@@ -4,3 +4,7 @@ Die Dateien dieses Verzeichnisses enthalten den Code aus dem ersten Video des Wo
 
 Von dieser Einschränkung abgesehen funktioniert alles (einschließlich der Einblendung der Events in der Konsole) auch dann, wenn Seiten `send2bin.html` oder `minimal.html` lokal im Browser geöffnet werden. 
 
+## Links
+- Elbwalker: https://www.elbwalker.com/
+- Details zur Nutzung / Implementierung: https://docs.elbwalker.com/master/what-is-walker.js
+- Repository (inkl. Destinations): https://github.com/elbwalker/walker.js 
