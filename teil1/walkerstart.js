@@ -17,7 +17,7 @@ function elb() {
     document.body.appendChild(pg);
 
     //Initialisierung
-    var endpointUrl = 'https://www.markus-baersch.de/first-party-demo/walkerstream/';
+    var endpointUrl = 'walkerstream/';
     elb("walker destination", { push: 
         function (event) {
         var xhr = new XMLHttpRequest();
