@@ -1,0 +1,58 @@
+    <!doctype html><html lang="de">
+<head>
+<title>DEMO: walker.js (Custom Endpoint Prep)</title>
+<script async class="elbwalker" src="https://cdn.jsdelivr.net/npm/@elbwalker/walker.js@latest/dist/walker.js" data-version="2"></script>
+<style>
+    body {font-family:arial;color:#fff;line-height:1.4em;background:#222;text-align:center}
+    #cnt {position: relative; max-width:1000px; margin: 10px auto; text-align:left; padding:1em}
+    a, h1, h2, h3, h4 {color:#beffb7}
+
+    /*Styling für bestimmte Elemente nach data-elb-Attributen statt Klassen*/
+    div[data-elb="someblock"]{padding:2em;background:#333}   
+</style>
+</head>
+<body>
+<div id="cnt">
+
+<div data-elbglobals="language:de"></div>
+<div data-elbcontext="some_property:42">
+
+<h1>Testseite - walker.js <small>(Custom Endpoint Prep)</small></h1>
+<p><b>Event -> Destination:</b> Hier werden Daten an <a href="https://httpbin.org/anything">https://httpbin.org/anything</a> gesendet, 
+um die Bedienug eines beliebigen (später First Party) Endpunkts zu demonstrieren.</p>
+
+<h2>Testlinks</h2>
+<ul>
+<li>Link mit Event via Attribut: <a data-elb="helloworld" data-elbaction="click" href="#">Hallo Welt</a></li>
+<li>Link mit virtuellem Pageview per JavaScript: <a href="#" onclick="elb('page view', { id: '/test/virtual/path1', title: 'Virtuelle Seite 1'}, 'click', {some_property: 14} );">Virtueller Seitenaufruf per elb()</a></li>    
+</ul>
+<p style="margin-bottom:100%">Hier ist nur etwas Text als Abstandhalter. Abwärts scrollen, um ein Element einzublenden, dessen Sichtbarkeit per Attribut vermessen wird...</p>
+
+<div data-elb="someblock" data-elbaction="visible">
+<h2 data-elb-someblock="name:#textContent">Ich bin ein Promoblock</h2>
+<p data-elb-someblock="category:internal promo">Call! To! Action!</p>
+</div>
+
+</div> <!--elbcontext -->
+</div> <!--cnt -->
+
+<script>
+function elb() {
+  (window.elbLayer = window.elbLayer || []).push(arguments);
+}
+var endpointUrl = 'https://httpbin.org/anything';
+elb("walker destination", { push: 
+    function (event) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', endpointUrl, true);
+    xhr.setRequestHeader('Content-type', 'text/plain; charset=utf-8');
+    xhr.send(JSON.stringify(event));
+    //Logging in Konsole für einfaches Debugging - im Echtbetrieb freilich unnoetig
+    console.log(event);
+} 
+});
+elb("walker run");
+</script>
+
+</body>
+</html>
