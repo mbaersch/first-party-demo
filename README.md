@@ -7,5 +7,5 @@ Code zur Video-Workshop Serie über First Party Data. Diese mehrteilige Serie ri
 
 von Website-Events im "First Party" Kontext: Auf dem eigenen Server bereitgestelltes Tracking-Script (Teil 1), Empfang der Daten an einem eigenen Endpunkt und die Speicherung und Verarbeitung der gesammelten Rohdaten (Teil 2).   
 
-Details zu den Inhalten des Repositiory finden sich in readme Dateien der einzelnen Ordner. Die Workshop-Serie und weitere Videos finden sich auf meinem YT Kanal unter https://www.youtube.com/markusbaersch 
+Details zu den Inhalten des Repositiory finden sich in readme Dateien der einzelnen Ordner. Die Workshop-Serie (https://www.youtube.com/watch?v=juzaUNb55t4&list=PLoPHZR6Jh3an0Rw_8gFQolsaQULKbvoEC) und weitere Videos finden sich auf meinem YT Kanal unter https://www.youtube.com/markusbaersch 
 
