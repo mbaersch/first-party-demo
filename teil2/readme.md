@@ -7,7 +7,7 @@ Im Ordner ssGTM findet sich das verwendete Client-Template für den serverside G
 
 ## Weitere Links
 - Wer mit Compute Engine einen Testserver aufsetzen will: 
-  - [Anleitung für Wevserver](https://cloud.google.com/community/tutorials/setting-up-lamp) 
+  - [Anleitung für Webserver](https://cloud.google.com/community/tutorials/setting-up-lamp) 
   - oder [Das hier](https://console.cloud.google.com/marketplace/product/jetware/lamp7)
   - Bei CORS Problemem passende Header direkt vom Server senden. Auch dazu eine [exemplarische Anleitung](https://techexpert.tips/apache/apache-add-header/)
 - Daten bewegen in der GCP von Text zu BugQuery: [Beispiel-Anleitung](https://www.ternarydata.com/news/use-python-and-google-cloud-to-schedule-a-file-download-and-load-into-bigquery-3p3aw)
