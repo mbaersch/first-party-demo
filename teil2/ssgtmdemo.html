@@ -1,0 +1,73 @@
+<!doctype html><html lang="de">
+<head>
+<title>DEMO: walker.js (ssGTM)</title>
+<script async class="elbwalker" src="https://cdn.jsdelivr.net/npm/@elbwalker/walker.js@latest/dist/walker.js" data-version="2"></script>
+<style>
+    body {font-family:arial;color:#fff;line-height:1.4em;background:#222;text-align:center}
+    #cnt {position: relative; max-width:1000px; margin: 10px auto; text-align:left; padding:1em}
+    a, h1, h2, h3, h4 {color:#beffb7}
+    div[data-elb="call_to_action"]{padding:2em;background:#333}   
+</style>
+</head>
+<body>
+<div id="cnt">
+
+<div data-elbglobals="language:de"></div>
+<div data-elbcontext="some_property:42">
+    
+<h1>Testseite - walker.js -> ssGTM</h1>
+<h2>Testlinks</h2>
+<ul>
+<li>Link mit Event via Attribut: <a data-elb="helloworld" data-elbaction="click" href="#">Hallo Welt</a></li>
+<li>Link mit virtuellem Pageview per JavaScript: <a href="#" onclick="elb('page view', { id: '/test/virtual/path1', title: 'Virtuelle Seite 1'}, 'click', {some_property: 14} );">Virtueller Seitenaufruf per elb()</a></li>    
+</ul>
+<p style="margin-bottom:100%">Hier ist nur etwas Text als Abstandhalter. Abwärts scrollen, um ein Element einzublenden, dessen Sichtbarkeit per Attribut vermessen wird...</p>
+
+<div data-elb="someblock" data-elbaction="visible">
+<h2 data-elb-someblock="name:#textContent">Ich bin ein Promoblock</h2>
+<p data-elb-someblock="category:internal promo">Call! To! Action!</p>
+</div>
+
+</div> <!--elbcontext -->
+</div> <!--cnt -->
+
+<script>
+
+//ssGTM Endpunkt Adresse: 
+var ep ="https://data.atomkraftwerke24.de/elbwalker";
+
+function elb() {
+  (window.elbLayer = window.elbLayer || []).push(arguments);
+}
+
+(function(){
+    //Minimum Bot-Schutz analog Trackboxx (siehe https://cdn.trackboxx.info/p/tracker.js)
+    if (/bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex/i.test(navigator.userAgent)) return false;
+
+    //Erweitern des DOM um globals; analog "Testwebsite" aus Teil 1
+    var ref = document.referrer;
+    if (ref) {
+        var rf = document.createElement("span");
+        rf.dataset.elbglobals = "page_referrer:'"+ref+"'";
+        document.body.appendChild(rf);
+    }
+
+    var pg = document.createElement("span");
+    pg.dataset.elbglobals = "page_location:'"+document.location.href+"'";
+    document.body.appendChild(pg);
+
+    //Hit senden als Image Request zur Vermeidung von CORS Problemen wg. POST Nutzlast
+    elb("walker destination", { push: 
+        function (event) {
+            var obs = JSON.stringify(event), req;
+        if (obs === "{}") obs = ""; else obs = btoa(unescape(encodeURIComponent(obs)));
+        var params = (obs != "") ? "?o=" + encodeURI(obs) : "";
+        (new Image).src = ep+params; 
+        console.log(event);
+    }}); 
+    elb("walker run");
+})();
+</script>
+
+</body>
+</html>

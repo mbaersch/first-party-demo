@@ -1,0 +1,24 @@
+<!doctype html><html lang="de">
+<head>
+<title>DEMO Seite 2: walker.js</title>
+<script id="elbloader" async class="elbwalker" src="walker.js" data-version="3"></script>
+<script defer src="walkerstart.js?v=6"></script>
+<style>
+    body {font-family:arial;color:#fff;line-height:1.4em;background:#222;text-align:center}
+    #cnt {position: relative; max-width:1000px; margin: 10px auto; text-align:left; padding:1em}
+    a, h1, h2, h3, h4 {color:#beffb7}
+</style>
+
+</head>
+<body>
+<div id="cnt">
+    
+<h1>Ich bin eine weitere Testseite f&uuml;r walker.js</h1>
+<p data-elb="heartbeat" data-elbaction="wait(5000):nobounce">Hier passiert nicht viel, aber es wird ein <span data-elbaction="pulse(10000):alive">"Heartbeat"</span> alle 10 Sekunden gesendet.</p>
+<p><a data-elb="home_link" data-elb-home_link="name:home link page 2" data-elb-home_link="title:#innerText" data-elbaction="hover" href="index.html">Zurück zur ersten Seite</a></p>
+
+</div> <!--elbcontext -->
+</div> <!--cnt -->
+
+</body>
+</html>
