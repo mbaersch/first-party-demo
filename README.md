@@ -1,6 +1,8 @@
 # First Party Demo
 **Code zur Video-Workshop Serie über First Party Data** 
 
+![First Party Workshop](https://www.markus-baersch.de/images/fpdemo.png)
+
 Dieses Repository enthält alle Codebeispiele zum First Party Data Workshop. 
 
 ![Last Update](https://img.shields.io/github/last-commit/mbaersch/first-party-demo) ![Languages](https://img.shields.io/github/languages/count/mbaersch/first-party-demo) ![Top](https://img.shields.io/github/languages/top/mbaersch/first-party-demo)
